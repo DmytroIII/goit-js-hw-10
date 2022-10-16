@@ -1,0 +1,2 @@
+const t=document.querySelector(".list");fetch("http://api.weatherapi.com/v1/forecast.json?key=9153ea9818454af8838171652221410&q=Kharkiv&days=7").then((t=>{if(!t.ok)throw new Error;return t.json()})).then((e=>{const n=e.forecast.forecastday.map((t=>`<li>\n  <h2> Дата: ${t.date}  </h2>\n  <img src="${t.day.condition.icon}" alt="${t.day.condition.text}">\n    <p>${t.day.condition.text} </p>\n    <h3> Средняя температура: ${t.day.avgtemp_c}  </h3>\n    </li>`)).join("");t.insertAdjacentHTML("beforeend",n)})).catch((t=>console.log(t)));
+//# sourceMappingURL=index.c3573d47.js.map
