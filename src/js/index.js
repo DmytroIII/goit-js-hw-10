@@ -3,10 +3,10 @@
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import debounce from 'lodash.debounce';
-import { fetchCountries } from './js/fetchCountries.js';
-import markupList from './templates/countryList.hbs';
-import markupItem from './templates/countryItem.hbs';
-import './css/styles.css';
+import { fetchCountries } from './fetchCountries';
+import markupList from '../templates/countryList.hbs';
+import markupItem from '../templates/countryItem.hbs';
+import '../css/styles.css';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -19,9 +19,9 @@ inputSearch.addEventListener('input', debounce(onSearchInput, DEBOUNCE_DELAY));
 Notify.init({
     position: "center-top"
 })
-function onSearchInput(e) {
+function onSearchInput(event) {
     clear()
-    const name = e.target.value.trim();
+    const name = event.target.value.trim();
     if (name === '') {
         return Notify.info(
             `It can't be empty field! Please, fill it up with at least two letters!`
